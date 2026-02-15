@@ -17,7 +17,7 @@ function Navbar() {
             <img
               src={logo}
               alt="Forte & Co."
-              className="h-32 md:h-24 w-auto object-contain"
+              className="h-28 md:h-24 w-auto object-contain"
             />
           </Link>
 

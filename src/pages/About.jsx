@@ -1,39 +1,56 @@
 import { motion } from "framer-motion";
-import aboutImg1 from "../assets/about-1.png"; // Add professional image
-import aboutImg2 from "../assets/about-2.png"; // Add secondary image
 import aboutHero from "../assets/about-bg.png";
+import aboutImg1 from "../assets/about-1.png";
+import aboutImg2 from "../assets/about-2.png";
 
 function About() {
   return (
     <div className="bg-primary text-light">
-      {/* ===== HERO BANNER ===== */}
+
+      {/* ================= HERO SECTION ================= */}
       <section className="relative py-28 text-center overflow-hidden border-b border-white/10">
-        {/* Background Image */}
-        <div
+
+        {/* Background Image with subtle zoom */}
+        <motion.div
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${aboutHero})` }}
-        ></div>
+        ></motion.div>
 
-        {/* Dark Overlay */}
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-heading text-light">
-            About Forte & Co.
-          </h1>
 
-          <p className="mt-6 text-muted text-lg leading-relaxed">
-            Structured legal advisory for businesses seeking <br />
-            clarity, consistency, and sustainable growth.
-          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-6 text-4xl md:text-5xl font-heading text-light leading-tight"
+          >
+            About Forte & Co.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mt-8 text-lg text-muted leading-relaxed"
+          >
+            Structured legal advisory for businesses <br />seeking clarity,
+            consistency, and sustainable growth.
+          </motion.p>
+
         </div>
       </section>
 
-      {/* ===== SECTION 1: IMAGE + CONTENT ===== */}
+      {/* ================= SECTION 1 ================= */}
       <section className="bg-light text-primary py-28 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-          {/* Image */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -47,14 +64,13 @@ function About() {
             />
           </motion.div>
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <span className="text-accent text-md uppercase tracking-widest">
+            <span className="text-accent text-sm uppercase tracking-widest">
               Who We Are
             </span>
 
@@ -64,47 +80,49 @@ function About() {
 
             <p className="mt-6 text-gray-700 leading-relaxed text-lg">
               Forte & Co. provides non-litigation legal assistance and legal
-              process outsourcing services to startups and companies seeking
-              structured documentation, compliance clarity, and scalable legal
-              frameworks.
+              process outsourcing services to startups and businesses requiring
+              structured documentation, compliance clarity, and scalable
+              advisory support.
             </p>
 
             <p className="mt-6 text-gray-700 leading-relaxed">
-              We function as an extended in-house legal team, enabling
-              organisations to focus on growth while maintaining a strong legal
-              foundation.
+              We operate as an extended in-house legal team, enabling
+              organisations to maintain legal consistency while focusing on
+              strategic growth.
             </p>
           </motion.div>
+
         </div>
       </section>
 
-      {/* ===== SECTION 2: DARK BAND ===== */}
+      {/* ================= SECTION 2 ================= */}
       <section className="bg-[#0F2438] py-28 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-          {/* Text */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-heading">Our Advisory Approach</h2>
+            <h2 className="text-3xl font-heading">
+              Our Advisory Approach
+            </h2>
 
             <p className="mt-6 text-muted leading-relaxed text-lg">
-              Legal risks are best managed proactively. Our engagement model
-              emphasises preventive structuring, standardised documentation, and
-              operational alignment.
+              Legal risks are best mitigated through preventive structuring.
+              Our engagement model emphasises clarity, standardisation,
+              and alignment with business operations.
             </p>
 
             <ul className="mt-8 space-y-4 text-muted">
               <li>• Continuous contract drafting & review</li>
-              <li>• Compliance and governance structuring</li>
-              <li>• Risk mitigation through documentation clarity</li>
+              <li>• Governance and compliance structuring</li>
+              <li>• Documentation standardisation</li>
               <li>• Cost-effective legal process outsourcing</li>
             </ul>
           </motion.div>
 
-          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -117,12 +135,14 @@ function About() {
               className="w-full shadow-xl"
             />
           </motion.div>
+
         </div>
       </section>
 
-      {/* ===== SECTION 3: VALUE BLOCKS ===== */}
+      {/* ================= VALUE BLOCKS ================= */}
       <section className="bg-light text-primary py-28 px-6">
         <div className="max-w-6xl mx-auto text-center">
+
           <span className="text-accent uppercase tracking-widest text-sm">
             Why Forte & Co.
           </span>
@@ -132,19 +152,20 @@ function About() {
           </h2>
 
           <div className="mt-16 grid md:grid-cols-3 gap-10">
+
             {[
               {
                 title: "Preventive Structuring",
-                text: "We mitigate legal risks at early stages rather than addressing disputes reactively.",
+                text: "Legal risks are mitigated at early stages rather than addressed reactively."
               },
               {
                 title: "Operational Alignment",
-                text: "Our advisory integrates with business operations for consistency and scalability.",
+                text: "Advisory support integrated seamlessly with business objectives."
               },
               {
                 title: "Flexible Engagement",
-                text: "Retainer, project-based, and document-specific models aligned with business needs.",
-              },
+                text: "Retainer, project-based, and document-specific models aligned with business needs."
+              }
             ].map((item, index) => (
               <div
                 key={index}
@@ -159,11 +180,12 @@ function About() {
                 </p>
               </div>
             ))}
+
           </div>
         </div>
       </section>
 
-      {/* ===== FINAL CTA BAND ===== */}
+      {/* ================= FINAL CTA ================= */}
       <section className="bg-primary py-24 text-center border-t border-white/10">
         <h2 className="text-3xl font-heading">
           Engage Structured Legal Support
@@ -178,6 +200,7 @@ function About() {
           </a>
         </div>
       </section>
+
     </div>
   );
 }
